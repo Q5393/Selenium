@@ -1,0 +1,64 @@
+package Assignment;
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.interactions.Actions;
+
+public class NetBanking {
+
+	public static void main(String[] args) throws InterruptedException {
+		
+		WebDriver driver=new FirefoxDriver();
+        driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+        
+       driver.get("https://www.icicibank.com");
+       driver.findElement(By.id("push-modal-close")).click();
+       driver.findElement(By.linkText("X")).click();
+       driver.findElement(By.className("pl-login-ornage-box")).click();
+       driver.findElement(By.xpath("//div//a[text()='Continue to Login']")).click();
+       driver.findElement(By.xpath("//*[@id='AuthenticationFG.USER_PRINCIPAL']")).sendKeys("5662");
+       driver.findElement(By.xpath("//*[@id='AuthenticationFG.ACCESS_CODE']")).sendKeys("gayu");
+       driver.findElement(By.xpath("//*[@id='VALIDATE_CREDENTIALS1']")).click();
+       driver.findElement(By.id("PAYMENTS__TRANSFER")).click();
+       Thread.sleep(3000);
+       driver.findElement(By.xpath("//*[@id='Fund-Transfer']")).click();
+       
+       driver.findElement(By.className("add_payee_btn")).click();
+       
+     // driver.findElement(By.className("formbtn displayBlock floatingleft")).click();
+       driver.findElement(By.xpath("//*[@id='ADD_ICICI_BANK_PAYEE']")).click();
+
+       //driver.findElement(By.className("labelColumn")).sendKeys("123");
+       driver.findElement(By.xpath("//*[@id='CorporateUserDashboard_WFT__1:CounterPartyCRUDFG.BNF_NAME']")).click();
+       driver.findElement(By.xpath("//*[@id='CorporateUserDashboard_WFT__1:CounterPartyCRUDFG.BNF_NAME']")).sendKeys("Sujata Gokul Bhagat");
+       
+       driver.findElement(By.xpath("//*[@id='CorporateUserDashboard_WFT__1:CounterPartyCRUDFG.BNF_NICK_NAME']")).click();
+       driver.findElement(By.xpath("//*[@id='CorporateUserDashboard_WFT__1:CounterPartyCRUDFG.BNF_NICK_NAME']")).sendKeys("Suju1");
+    
+       driver.findElement(By.xpath("//*[@id='CorporateUserDashboard_WFT__1:CounterPartyCRUDFG.BNF_ACCT_NUMBER']")).click();
+       driver.findElement(By.xpath("//*[@id='CorporateUserDashboard_WFT__1:CounterPartyCRUDFG.BNF_ACCT_NUMBER']")).sendKeys("148401508367");
+       
+       
+       driver.findElement(By.xpath("//*[@id='CorporateUserDashboard_WFT__1:CounterPartyCRUDFG.RE_ACCOUNT_NUMBER']")).click();
+       driver.findElement(By.xpath("//*[@id='CorporateUserDashboard_WFT__1:CounterPartyCRUDFG.RE_ACCOUNT_NUMBER']")).sendKeys("148401508367");
+       driver.findElement(By.xpath("//*[@id='CorporateUserDashboard_WFT__1:CONTINUE']")).click();
+     
+       driver.findElement(By.id("CorporateUserDashboard_WFT__1:SUBMIT")).click();
+       driver.findElement(By.id("CorporateUserDashboard_WFT__1:CONFIRM_PAYEE")).click();
+    
+//    
+//       driver.findElement(By.className("CustomQuickPayFundsTransferFG.TO_ACCOUNT")).sendKeys("123");
+      // driver.findElement(By.xpath("//*[@id='CustomQuickPayFundsTransferFG.TO_ACCOUNT']")).sendKeys("123456");
+     //  driver.findElement(By.xpath("//*[@id='CustomQuickPayFundsTransferFG.TO_ACCOUNT']")).sendKeys("123456");
+    		   //       Actions act=new Actions(driver);
+//       act.moveToElement(driver.findElement(By.xpath("//*[@id='Fund-Transfer']"))).click().build().perform();
+//      // driver.findElement(By.className("login_button")).click();
+//     
+       // driver.close();
+	}
+
+}
